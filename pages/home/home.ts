@@ -10,17 +10,16 @@ Page({
   _loadData: function() {
     var id = 1;
     home.getBannerData(id, (res: any) => {
-      // console.log(res);
-      this.setData({
+      this.setData!({
         bannerArr: res
       });
     });
 
     home.getThemeData((data: any) => {
-      // console.log(data);
-      this.setData({
+      this.setData!({
         themeArr: data
       });
     });
   }
+  
 });
