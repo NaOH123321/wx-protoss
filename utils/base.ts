@@ -25,6 +25,10 @@ export class Base {
       }
     });
   }
+
+  getDataSet(event: any, key: string) {
+    return event.currentTarget.dataset[key];
+  }
 }
 
 export interface Param {
