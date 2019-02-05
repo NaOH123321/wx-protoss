@@ -20,5 +20,39 @@
 		"autoAudits": false
 	},
 	"appid": "wx46a16b53fcccb845",
-	"condition": {}
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": 0,
+					"name": "产品",
+					"pathName": "pages/product/product",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分类",
+					"pathName": "pages/category/category",
+					"scene": null
+				}
+			]
+		}
+	}
 }

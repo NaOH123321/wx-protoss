@@ -1,5 +1,5 @@
-import { Param } from "./../../utils/base";
-import { Base } from "../../utils/base";
+import { Param } from './../../utils/base';
+import { Base } from '../../utils/base';
 
 export class Theme extends Base {
   constructor() {

@@ -1,11 +1,11 @@
-import { Theme } from "./theme-model";
+import { Theme } from './theme-model';
 
 const theme = new Theme();
 
 Page({
   data: {
     id: 0,
-    name: ""
+    name: ''
   },
 
   onLoad: function(options: any) {
@@ -29,9 +29,9 @@ Page({
   },
 
   onProductsItemTap: function(event: any) {
-    const id = theme.getDataSet(event, "id");
+    const id = theme.getDataSet(event, 'id');
     wx.navigateTo({
       url: `../product/product?id=${id}`
     });
-  },
+  }
 });

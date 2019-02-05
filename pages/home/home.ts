@@ -1,4 +1,4 @@
-import { Home } from "./home-model";
+import { Home } from './home-model';
 
 const home = new Home();
 
@@ -29,15 +29,15 @@ Page({
   },
 
   onProductsItemTap: function(event: any) {
-    const id = home.getDataSet(event, "id");
+    const id = home.getDataSet(event, 'id');
     wx.navigateTo({
       url: `../product/product?id=${id}`
     });
   },
 
   onThemesItemTap: function(event: any) {
-    const id = home.getDataSet(event, "id");
-    const name = home.getDataSet(event, "name");
+    const id = home.getDataSet(event, 'id');
+    const name = home.getDataSet(event, 'name');
     wx.navigateTo({
       url: `../theme/theme?id=${id}&name=${name}`
     });

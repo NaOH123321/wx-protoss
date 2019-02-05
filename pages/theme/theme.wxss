@@ -4,7 +4,7 @@
 
 .theme-header {
   height: 400rpx;
-  width: 100%;
+  width: 100%; /* 比老师的多了此行 */
   margin-bottom: 30rpx;
   position: relative;
 }
