@@ -4,7 +4,9 @@
     "pages/product/product",
     "pages/theme/theme",
     "pages/category/category",
-    "pages/cart/cart"
+    "pages/cart/cart",
+    "pages/my/my",
+    "pages/order/order"
   ],
   "window": {
     "backgroundColor": "#eeeeee",
@@ -35,7 +37,7 @@
         "selectedIconPath": "imgs/toolbar/cart@selected.png"
       },
       {
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "imgs/toolbar/my.png",
         "selectedIconPath": "imgs/toolbar/my@selected.png"
@@ -45,5 +47,6 @@
     "selectedColor": "#AB956D",
     "color": "#989898",
     "backgroundColor": "#F5F5F5"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

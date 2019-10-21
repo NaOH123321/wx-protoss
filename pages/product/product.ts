@@ -61,5 +61,12 @@ Page({
     }
 
     cart.add(tempObj, this.data.productCount);
+  },
+
+  /*跳转到购物车*/
+  onCartTap: function() {
+    wx.switchTab({
+      url: '/pages/cart/cart'
+    });
   }
 });

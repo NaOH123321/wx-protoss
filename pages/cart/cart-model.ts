@@ -27,15 +27,31 @@ export class Cart extends Base {
     } else {
       cartData[isHasInfo.index].counts += counts;
     }
-    wx.setStorageSync(this._storageKeyName, cartData);
+    this.execSetStorageSync(cartData);
   }
+
+  /*本地缓存 保存／更新*/
+  execSetStorageSync(data: CartItem[]) {
+    wx.setStorageSync(this._storageKeyName, data);
+  }
+
   /*
    * 从缓存中读取购物车数据
    */
-  getCartDataFromLocal() {
+  getCartDataFromLocal(flag: boolean = false) {
     let res: CartItem[] = wx.getStorageSync(this._storageKeyName);
     if (!res) {
       res = [];
+    }
+    //在下单的时候过滤不下单的商品，
+    if (flag) {
+      var newRes = [];
+      for (let i = 0; i < res.length; i++) {
+        if (res[i].selectStatus) {
+          newRes.push(res[i]);
+        }
+      }
+      res = newRes;
     }
     return res;
   }
@@ -45,8 +61,9 @@ export class Cart extends Base {
    * 数据以及所在数组中的序号
    */
   _isHasThatOne(id: number, arr: CartItem[]) {
-    let item;
-    let result = { index: -1, data: {} };
+    let item: CartItem;
+    const cartItem: CartItem = { id: 0, counts: 0 };
+    let result = { index: -1, data: cartItem };
     for (let i = 0; i < arr.length; i++) {
       item = arr[i];
       if (item.id == id) {
@@ -68,13 +85,61 @@ export class Cart extends Base {
     }
     return counts;
   }
+
+  /*
+   * 修改商品数目
+   * params:
+   * id - {int} 商品id
+   * counts -{int} 数目
+   * */
+  _changeCounts(id: number, counts: number) {
+    const cartData = this.getCartDataFromLocal();
+    const isHasInfo = this._isHasThatOne(id, cartData);
+    if (isHasInfo.index != -1) {
+      if (isHasInfo.data.counts > 1) {
+        cartData[isHasInfo.index].counts += counts;
+      }
+    }
+    this.execSetStorageSync(cartData);
+  }
+
+  /*
+   * 增加商品数目
+   * */
+  addCounts(id: number) {
+    this._changeCounts(id, 1);
+  }
+
+  /*
+   * 减少商品数目
+   * */
+  cutCounts(id: number) {
+    this._changeCounts(id, -1);
+  }
+
+  /*
+   * 删除某些商品
+   */
+  delete(ids: number[]) {
+    if (!(ids instanceof Array)) {
+      ids = [ids];
+    }
+    var cartData = this.getCartDataFromLocal();
+    for (let i = 0; i < ids.length; i++) {
+      var hasInfo = this._isHasThatOne(ids[i], cartData);
+      if (hasInfo.index != -1) {
+        cartData.splice(hasInfo.index, 1); //删除数组某一项
+      }
+    }
+    this.execSetStorageSync(cartData);
+  }
 }
 
 export interface CartItem {
   id: number;
-  name: string;
-  main_img_url: string;
-  price: number;
+  name?: string;
+  main_img_url?: string;
+  price?: number;
   counts: number;
-  selectStatus: boolean;
+  selectStatus?: boolean;
 }

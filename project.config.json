@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.0",
+	"libVersion": "2.8.3",
 	"projectname": "protoss",
 	"scripts": {
 		"beforeCompile": "npm run compile",
@@ -13,13 +13,24 @@
 	},
 	"setting": {
 		"urlCheck": false,
-		"es6": true,
+		"es6": false,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"appid": "wx46a16b53fcccb845",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -36,6 +47,10 @@
 		"game": {
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 1,
 			"list": [
@@ -50,6 +65,13 @@
 					"id": -1,
 					"name": "分类",
 					"pathName": "pages/category/category",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/cart/cart",
 					"scene": null
 				}
 			]
