@@ -13,7 +13,7 @@
 /* 订单编号和下单时间 */
 .order-address-info {
   margin-bottom: 20rpx;
-  width: 100%;
+  width: 90%;
 }
 
 .order-basic-info {
